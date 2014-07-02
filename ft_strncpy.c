@@ -6,7 +6,7 @@
 /*   By: tseguier <tseguier@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/17 04:24:40 by tseguier          #+#    #+#             */
-/*   Updated: 2014/03/27 18:40:24 by jcoignet         ###   ########.fr       */
+/*   Updated: 2014/07/02 16:01:10 by tseguier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,12 @@
 
 char	*ft_strncpy(char *s1, const char *s2, size_t n)
 {
-	if (n == 0)
-		return (s1);
-	*s1 = *s2;
-	if (*s2 != '\0')
-		++s2;
-	ft_strncpy(s1 + 1, s2, n - 1);
+	if (!s1 || !s2)
+		return (NULL);
+	while (n > 0)
+	{
+		--n;
+		*(s1 + n) = *(s2 + n);
+	}
 	return (s1);
 }

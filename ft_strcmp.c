@@ -6,15 +6,18 @@
 /*   By: tseguier <tseguier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/22 04:12:18 by tseguier          #+#    #+#             */
-/*   Updated: 2014/03/27 18:39:51 by jcoignet         ###   ########.fr       */
+/*   Updated: 2014/07/02 15:41:07 by tseguier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int		ft_strcmp(const char *s1, const char *s2)
 {
-	if (*s1 == '\0' && *s2 == '\0')
-		return (0);
-	if (*s1 != *s2)
-		return ((int)(*s1 - *s2));
-	return (ft_strcmp(s1 + 1, s2 + 1));
+	int		i
+
+	i = 0;
+	if (!s1 || !s2)
+		return (-1);
+	while (*(s1 + i) != *(s2 + i) && *(s1 + i))
+		++i;
+	return ((int)(*s1 - *s2));
 }

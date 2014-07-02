@@ -6,7 +6,7 @@
 /*   By: tseguier <tseguier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/25 17:06:21 by tseguier          #+#    #+#             */
-/*   Updated: 2014/03/27 18:39:43 by jcoignet         ###   ########.fr       */
+/*   Updated: 2014/07/02 15:33:59 by tseguier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,5 @@ void	ft_putstr_fd(char const *s, int fd)
 	if (!s || fd < 0)
 		return ;
 	i = ft_strlen(s);
-	if (i > 0 && fd > 0)
-		write(fd, s, i);
+	write(fd, s, i);
 }

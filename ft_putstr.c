@@ -6,7 +6,7 @@
 /*   By: tseguier <tseguier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/25 16:50:31 by tseguier          #+#    #+#             */
-/*   Updated: 2014/03/27 18:39:42 by jcoignet         ###   ########.fr       */
+/*   Updated: 2014/07/02 15:33:22 by tseguier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,7 @@ void	ft_putstr(char const *s)
 	int		i;
 
 	if (!s)
-	{
 		write(1, "(NULL)", 6);
-		return ;
-	}
-	i = 0;
-	while (s[i] != '\0')
-		ft_putchar(s[i++]);
+	else
+		write(1, s, ft_strlen(s));
 }

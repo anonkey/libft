@@ -6,7 +6,7 @@
 /*   By: tseguier <tseguier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/19 11:41:25 by tseguier          #+#    #+#             */
-/*   Updated: 2014/03/27 18:44:27 by jcoignet         ###   ########.fr       */
+/*   Updated: 2014/07/02 15:29:40 by tseguier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 static void		ft_charmemset(unsigned char *b, unsigned char c, size_t len)
 {
-	if (len > 0 && b)
+	while (len > 0 && b)
 	{
-		*b = c;
-		ft_charmemset(++b, c, --len);
+		--len;
+		*(b + len) = c;
 	}
 }
 

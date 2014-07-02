@@ -6,18 +6,20 @@
 /*   By: tseguier <tseguier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/20 17:38:01 by tseguier          #+#    #+#             */
-/*   Updated: 2014/03/27 18:39:57 by jcoignet         ###   ########.fr       */
+/*   Updated: 2014/07/02 15:41:50 by tseguier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 char		*ft_strcpy(char *s1, const char *s2)
 {
-	if (*s2 == '\0')
+	int		i;
+
+	i = 0;
+	while (*(s2 + i))
 	{
-		*s1 = '\0';
-		return (s1);
+		*(s1 + i) = *(s2 + i);
+		++i;
 	}
-	*s1 = *s2;
-	ft_strcpy(s1 + 1, s2 + 1);
+	*(s1 + i) = *(s2 + i);
 	return (s1);
 }

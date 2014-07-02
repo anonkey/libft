@@ -6,7 +6,7 @@
 /*   By: tseguier <tseguier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/20 16:18:17 by tseguier          #+#    #+#             */
-/*   Updated: 2014/03/27 18:40:14 by jcoignet         ###   ########.fr       */
+/*   Updated: 2014/07/02 15:57:46 by tseguier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,10 @@
 
 size_t	ft_strlen(const char *str)
 {
-	if (*str == '\0')
-		return (0);
-	else
-		return (1 + ft_strlen(str + 1));
+	size_t		len;
+
+	len = 0;
+	while (*(str + len))
+		++len;
+	return (len);
 }
