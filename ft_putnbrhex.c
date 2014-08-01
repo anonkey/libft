@@ -1,22 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_putnbrhex.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tseguier <tseguier@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tseguier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2013/11/25 16:50:31 by tseguier          #+#    #+#             */
-/*   Updated: 2014/07/06 14:18:33 by tseguier         ###   ########.fr       */
+/*   Created: 2014/08/01 04:33:12 by tseguier          #+#    #+#             */
+/*   Updated: 2014/08/01 04:35:47 by tseguier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include "libft.h"
 
-void	ft_putstr(char const *s)
+const char	*g_hexbase = "0123456789abcdef";
+
+void		ft_putnbrhex(unsigned int nb, unsigned int len)
 {
-	if (!s)
-		write(1, "(NULL)", 6);
+	char	nb_act;
+
+	nb_act = nb % 16;
+	if (nb >= 16)
+		ft_putnbrhex(nb / 16, len + 1);
 	else
-		write(1, s, ft_strlen(s));
+	{
+		while (len++ < 8)
+			ft_putchar('0');
+	}
+	ft_putchar(g_hexbase[(int)nb_act]);
 }

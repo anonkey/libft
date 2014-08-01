@@ -6,7 +6,7 @@
 /*   By: tseguier <tseguier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/12/04 01:23:50 by tseguier          #+#    #+#             */
-/*   Updated: 2014/07/01 19:15:28 by tseguier         ###   ########.fr       */
+/*   Updated: 2014/07/06 14:19:11 by tseguier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ t_ldcd_cell		ft_ldcd_cellnew(void *elem, size_t elem_size)
 			ft_memdel((void **)&newcell);
 			return (NULL);
 		}
-		ft_bzero(newcell->content, content_size);
+		ft_bzero(newcell->content, elem_size);
 		newcell->content_size = elem_size;
 		newcell->next = NULL;
 		newcell->prev = NULL;

@@ -6,7 +6,7 @@
 #    By: tseguier <tseguier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2013/11/26 00:03:59 by tseguier          #+#    #+#              #
-#    Updated: 2014/07/01 18:40:58 by tseguier         ###   ########.fr        #
+#    Updated: 2014/08/01 04:28:55 by tseguier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -107,6 +107,9 @@ SRC = ft_memset.c \
 	ft_btree_put.c \
 	ft_strtabdel.c \
 	ft_getchar.c \
+	ft_print_memory.c \
+	ft_atoi_base.c \
+	ft_putnbr_base.c \
 	get_next_line.c
 OBJ = $(SRC:.c=.o)
 
