@@ -6,7 +6,7 @@
 /*   By: tseguier <tseguier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/21 19:21:16 by tseguier          #+#    #+#             */
-/*   Updated: 2014/06/26 18:27:06 by tseguier         ###   ########.fr       */
+/*   Updated: 2014/08/01 04:37:57 by tseguier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 /*
 ** Affichage
 */
+void		*ft_print_memory(void *addr, unsigned int size);
+void		ft_putnbrhex(unsigned int nb, unsigned int len);
 void		ft_putchar(char c);
 void		ft_putstr(char const *s);
 void		ft_putendl(char const *s);
@@ -28,6 +30,7 @@ void		ft_putchar_fd(char c, int fd);
 void		ft_putstr_fd(char const *s, int fd);
 void		ft_putendl_fd(char const *s, int fd);
 void		ft_putnbr_fd(int n, int fd);
+void		ft_putnbr_base(int nbr, char *base);
 /*
 ** Memory
 */
@@ -122,6 +125,7 @@ void		ft_strtabdel(char ***strtab);
 char		*ft_ctoa_base(char c, const char *basefrom, const char *baseto);
 int			ft_atoi(const char *str);
 long		ft_atol(const char *str);
+int			ft_atoi_base(char *str, char *base);
 /*
 ** Lists
 */
