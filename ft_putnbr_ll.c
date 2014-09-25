@@ -1,24 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putnbr_ll.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tseguier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/07/01 19:04:44 by tseguier          #+#    #+#             */
-/*   Updated: 2014/09/25 22:33:40 by tseguier         ###   ########.fr       */
+/*   Created: 2014/09/25 22:03:18 by tseguier          #+#    #+#             */
+/*   Updated: 2014/09/25 22:03:20 by tseguier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include "headers/libft.h"
+#include "libft.h"
+#include <limits.h>
 
-int		ft_putnbr_len(long long nbr, int len, char fill);
-int		main(void)
+int	ft_putnbr_ll(long long nbr)
 {
-	long long		nb;
+	char		digit;
+	unsigned long	size;
 
-	nb = 123456789;
-	ft_putnbr_len(nb, 5, '|');
-	return (1);
+// long max
+	size = 1;
+	if (nbr < 0)
+	{
+	    ++size;
+	    ft_putchar('-');
+	    nbr = 0 - nbr;
+	}
+	digit = (char)(nbr % 10);
+	if (nbr >= 10)
+		size += ft_putnbr_ll(nbr / 10);
+	ft_putchar('0' + digit);
+	return (size);
 }

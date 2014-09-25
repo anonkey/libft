@@ -12,19 +12,27 @@
 
 #include "libft.h"
 
-const char	*g_hexbase = "0123456789abcdef";
+static const char	*g_hexbase = "0123456789abcdef";
+static const char	*g_hexbase_maj = "0123456789ABCDEF";
 
-void		ft_putnbrhex(unsigned int nb, unsigned int len)
+int		ft_putnbrhex(unsigned long long nb, unsigned int len, int maj)
 {
 	char	nb_act;
+	int	size;
 
 	nb_act = nb % 16;
+	size = 1;
 	if (nb >= 16)
-		ft_putnbrhex(nb / 16, len + 1);
-	else
+		size += ft_putnbrhex(nb / 16, len > 0 ? len - 1 : 0, maj);
+	else if (len > 0)
 	{
-		while (len++ < 8)
-			ft_putchar('0');
+		size += len - 1;
+		while (--len > 0)
+		    ft_putchar('0');
 	}
-	ft_putchar(g_hexbase[(int)nb_act]);
+	if (maj)
+		ft_putchar(g_hexbase_maj[(int)nb_act]);
+	else
+		ft_putchar(g_hexbase[(int)nb_act]);
+	return (size);
 }

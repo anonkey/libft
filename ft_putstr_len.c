@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tseguier <tseguier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2013/11/25 16:47:44 by tseguier          #+#    #+#             */
-/*   Updated: 2014/03/27 18:39:32 by jcoignet         ###   ########.fr       */
+/*   Created: 2013/11/25 16:50:31 by tseguier          #+#    #+#             */
+/*   Updated: 2014/07/06 14:18:33 by tseguier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include "libft.h"
 
-int	ft_putchar(char c)
+int	ft_putstr_len(char const *s, unsigned long len)
 {
-	return (write(1, &c, 1));
+    unsigned long   size;
+	if (!s)
+		return (write(1, "(NULL)", 6 > len ? len : 6));
+	size = ft_strlen(s);
+	    return (write(1, s, size > len ? len : size));
 }

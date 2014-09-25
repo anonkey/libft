@@ -1,24 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putnbroct.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tseguier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/07/01 19:04:44 by tseguier          #+#    #+#             */
-/*   Updated: 2014/09/25 22:33:40 by tseguier         ###   ########.fr       */
+/*   Created: 2014/08/01 04:33:12 by tseguier          #+#    #+#             */
+/*   Updated: 2014/08/01 04:35:47 by tseguier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include "headers/libft.h"
+#include "libft.h"
 
-int		ft_putnbr_len(long long nbr, int len, char fill);
-int		main(void)
+static const char	*g_octbase = "01234567";
+
+int		ft_putnbr_oct(unsigned long long nb, unsigned int len)
 {
-	long long		nb;
+	char	nb_act;
+	int	size;
 
-	nb = 123456789;
-	ft_putnbr_len(nb, 5, '|');
-	return (1);
+	size = 1;
+	nb_act = nb % 8;
+	if (nb >= 8)
+		size += ft_putnbr_oct(nb / 8, len > 0 ? len - 1 : 0);
+	else if (len > 0)
+	{
+		size += len - 1;
+		while (--len > 0)
+		    ft_putchar('0');
+	}
+	ft_putchar(g_octbase[(int)nb_act]);
+	return (size);
 }

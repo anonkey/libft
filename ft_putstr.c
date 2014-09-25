@@ -13,10 +13,10 @@
 #include <unistd.h>
 #include "libft.h"
 
-void	ft_putstr(char const *s)
+int	ft_putstr(char const *s)
 {
 	if (!s)
-		write(1, "(NULL)", 6);
+		return (write(1, "(NULL)", 6));
 	else
-		write(1, s, ft_strlen(s));
+		return (write(1, s, ft_strlen(s)));
 }
