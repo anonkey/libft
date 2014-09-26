@@ -21,16 +21,19 @@
 ** Affichage
 */
 void		*ft_print_memory(void *addr, unsigned int size);
-void		ft_putnbrhex(unsigned int nb, unsigned int len);
-void		ft_putchar(char c);
-void		ft_putstr(char const *s);
-void		ft_putendl(char const *s);
+int		ft_putnbrhex(unsigned long long nb, unsigned int len, int maj);
+void		ft_putnbr_oct(unsigned long long nb, unsigned int len);
+int		ft_putchar(char c);
+int		ft_putstr(char const *s);
+int		ft_putendl(char const *s);
 void		ft_putnbr(int n);
 void		ft_putchar_fd(char c, int fd);
 void		ft_putstr_fd(char const *s, int fd);
 void		ft_putendl_fd(char const *s, int fd);
 void		ft_putnbr_fd(int n, int fd);
 void		ft_putnbr_base(int nbr, char *base);
+int		ft_putnbr_ll(long long nbr);
+int		ft_putnbr_ull(unsigned long long nbr);
 /*
 ** Memory
 */

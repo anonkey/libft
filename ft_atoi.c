@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <limits.h>
 
 static int	ft_isspace(int c)
 {
@@ -25,7 +26,7 @@ long		ft_atol(const char *str)
 	number = 0;
 	if (ft_strncmp(str, "-9223372036854775808", 20) == 0
 		&& (str[20] < '0' || str[20] > '9'))
-		return (-9223372036854775807 - 1);
+		return (LONG_MIN);
 	while (ft_isspace(*str))
 		++str;
 	sign = (*str == '-') ? -1 : 1;

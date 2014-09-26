@@ -13,8 +13,9 @@
 #include <unistd.h>
 #include "libft.h"
 
-void	ft_putendl(char const *s)
+int	ft_putendl(char const *s)
 {
-	ft_putstr(s);
-	write(1, "\n", 1);
+    int	    len;
+	len = ft_putstr(s);
+	return (len + write(1, "\n", 1));
 }
