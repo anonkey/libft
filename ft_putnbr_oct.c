@@ -14,17 +14,21 @@
 
 static const char	*g_octbase = "01234567";
 
-void		ft_putnbr_oct(unsigned long long nb, unsigned int len)
+int		ft_putnbr_oct(unsigned long long nb, unsigned int len)
 {
 	char	nb_act;
+	int	size;
 
+	size = 1;
 	nb_act = nb % 8;
 	if (nb >= 8)
-		ft_putnbr_oct(nb / 8, len > 0 ? len - 1 : 0);
+		size += ft_putnbr_oct(nb / 8, len > 0 ? len - 1 : 0);
 	else if (len > 0)
 	{
+		size += len - 1;
 		while (--len > 0)
 		    ft_putchar('0');
 	}
 	ft_putchar(g_octbase[(int)nb_act]);
+	return (size);
 }

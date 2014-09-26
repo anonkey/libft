@@ -6,7 +6,7 @@
 /*   By: tseguier <tseguier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/21 19:21:16 by tseguier          #+#    #+#             */
-/*   Updated: 2014/08/01 04:37:57 by tseguier         ###   ########.fr       */
+/*   Updated: 2014/09/25 22:34:26 by tseguier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 */
 void		*ft_print_memory(void *addr, unsigned int size);
 int		ft_putnbrhex(unsigned long long nb, unsigned int len, int maj);
-void		ft_putnbr_oct(unsigned long long nb, unsigned int len);
+int		ft_putnbr_oct(unsigned long long nb, unsigned int len);
 int		ft_putchar(char c);
 int		ft_putstr(char const *s);
 int		ft_putendl(char const *s);
@@ -33,7 +33,9 @@ void		ft_putendl_fd(char const *s, int fd);
 void		ft_putnbr_fd(int n, int fd);
 void		ft_putnbr_base(int nbr, char *base);
 int		ft_putnbr_ll(long long nbr);
+int		ft_putnbr_len(long long nbr, int len, char fill);
 int		ft_putnbr_ull(unsigned long long nbr);
+int		ft_putstr_len(char const *s, unsigned long len);
 /*
 ** Memory
 */

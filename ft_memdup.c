@@ -1,34 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_ll.c                                     :+:      :+:    :+:   */
+/*   ft_memdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tseguier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/09/25 22:03:18 by tseguier          #+#    #+#             */
-/*   Updated: 2014/09/25 22:03:20 by tseguier         ###   ########.fr       */
+/*   Created: 2014/04/15 20:20:51 by tseguier          #+#    #+#             */
+/*   Updated: 2014/04/19 02:41:28 by tseguier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "libft.h"
-#include <limits.h>
 
-int	ft_putnbr_ll(long long nbr)
+void	*ft_memdup(void *mem, size_t len)
 {
-	char		digit;
-	unsigned long	size;
+	void	*newmem;
+	size_t	i;
 
-// long max
-	size = 1;
-	if (nbr < 0)
+	if (!mem)
+		return (NULL);
+	i = 0;
+	newmem = malloc(len);
+	if (!newmem)
+		return (NULL);
+	while (i < len)
 	{
-	    ++size;
-	    ft_putchar('-');
-	    nbr = 0 - nbr;
+		*((char *)(newmem + i)) = *((char *)(mem + i));
+		++i;
 	}
-	digit = (char)(nbr % 10);
-	if (nbr >= 10)
-		size += ft_putnbr_ll(nbr / 10);
-	ft_putchar('0' + digit);
-	return (size);
+	return (newmem);
 }

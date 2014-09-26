@@ -21,12 +21,12 @@ int		ft_putnbrhex(unsigned long long nb, unsigned int len, int maj)
 	int	size;
 
 	nb_act = nb % 16;
-	size = 0;
+	size = 1;
 	if (nb >= 16)
-		size = ft_putnbrhex(nb / 16, len > 0 ? len - 1 : 0, maj);
+		size += ft_putnbrhex(nb / 16, len > 0 ? len - 1 : 0, maj);
 	else if (len > 0)
 	{
-		size = len - 1;
+		size += len - 1;
 		while (--len > 0)
 		    ft_putchar('0');
 	}
@@ -34,5 +34,5 @@ int		ft_putnbrhex(unsigned long long nb, unsigned int len, int maj)
 		ft_putchar(g_hexbase_maj[(int)nb_act]);
 	else
 		ft_putchar(g_hexbase[(int)nb_act]);
-	return (1 + size);
+	return (size);
 }

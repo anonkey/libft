@@ -6,7 +6,7 @@
 #    By: tseguier <tseguier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2013/11/26 00:03:59 by tseguier          #+#    #+#              #
-#    Updated: 2014/08/01 04:28:55 by tseguier         ###   ########.fr        #
+#    Updated: 2014/09/25 22:34:56 by tseguier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -70,11 +70,13 @@ SRC = ft_memset.c \
 	ft_itoa.c \
 	ft_putchar.c \
 	ft_putstr.c \
+	ft_putstr_len.c \
 	ft_putendl.c \
 	ft_putnbr.c \
 	ft_putnbrhex.c \
 	ft_putnbr_oct.c \
 	ft_putnbr_ll.c \
+	ft_putnbr_len.c \
 	ft_putnbr_ull.c \
 	ft_putchar_fd.c \
 	ft_putstr_fd.c \

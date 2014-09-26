@@ -6,17 +6,19 @@
 /*   By: tseguier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/07/01 19:04:44 by tseguier          #+#    #+#             */
-/*   Updated: 2014/07/01 19:06:47 by tseguier         ###   ########.fr       */
+/*   Updated: 2014/09/25 22:33:40 by tseguier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "headers/libft.h"
 
-int		main(int argc, char **argv)
+int		ft_putnbr_len(long long nbr, int len, char fill);
+int		main(void)
 {
-	char *t=malloc(100);
+	long long		nb;
 
-	ft_bzero(t, 100);
+	nb = 123456789;
+	ft_putnbr_len(nb, 5, '|');
 	return (1);
 }
