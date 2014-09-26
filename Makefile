@@ -73,6 +73,8 @@ SRC = ft_memset.c \
 	ft_putstr_len.c \
 	ft_putendl.c \
 	ft_putnbr.c \
+	ft_putdouble.c \
+	ft_putldouble.c \
 	ft_putnbrhex.c \
 	ft_putnbr_oct.c \
 	ft_putnbr_ll.c \

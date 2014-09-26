@@ -36,6 +36,8 @@ int		ft_putnbr_ll(long long nbr);
 int		ft_putnbr_len(long long nbr, int len, char fill);
 int		ft_putnbr_ull(unsigned long long nbr);
 int		ft_putstr_len(char const *s, unsigned long len);
+int		ft_putdouble(double nb, int prec);
+int		ft_putldouble(long double nb, int prec);
 /*
 ** Memory
 */
