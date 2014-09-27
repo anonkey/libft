@@ -12,9 +12,9 @@
 #include "headers/libft.h"
 #include <limits.h>
 
-int		ft_putnbr_len(long long nbr, int len, char fill)
+int		ft_putnbr_len(long long nbr, int len, char fill, int sign)
 {
-	int				pow;
+	int		pow;
 	unsigned long	size;
 
 	size = 1;
@@ -24,10 +24,14 @@ int		ft_putnbr_len(long long nbr, int len, char fill)
 		++size;
 		pow *= 10;
 	}
-	if (nbr < 0)
-		++size;
+	if (nbr < 0 || sign)
+	{
+	    ++size;
+	    ft_putchar(nbr < 0 ? '-' : '+');
+	    nbr = nbr > 0 ? nbr : 0 - nbr;
+	}
 	while ((unsigned long)len > size++)
 		ft_putchar(fill);
-	ft_putnbr_ll(nbr);
-	return (0);
+	ft_putnbr_ll(nbr, 0);
+	return (len);
 }

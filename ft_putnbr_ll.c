@@ -12,23 +12,32 @@
 
 #include "libft.h"
 #include <limits.h>
+#define MAX_LLSIZE 64
 
-int	ft_putnbr_ll(long long nbr)
+int	ft_putnbr_ll(long long nbr, int sign)
 {
-	char		digit;
 	unsigned long	size;
+	char		strout[MAX_LLSIZE + 1];
+	char		*act;
 
 // long max
 	size = 1;
-	if (nbr < 0)
+	act = strout + MAX_LLSIZE;
+	*act-- = '\0';
+	if (nbr < 0 || sign)
 	{
 	    ++size;
-	    ft_putchar('-');
-	    nbr = 0 - nbr;
+	    ft_putchar(nbr < 0 ? '-' : '+');
+	    nbr = nbr > 0 ? nbr : 0 - nbr;
 	}
-	digit = (char)(nbr % 10);
-	if (nbr >= 10)
-		size += ft_putnbr_ll(nbr / 10);
-	ft_putchar('0' + digit);
+	while (nbr >= 10)
+	{
+		*act = '0' + (char)(nbr % 10);
+		--act;
+		++size;
+		nbr /= 10;
+	}
+	*act = '0' + nbr;
+	ft_putstr(act);
 	return (size);
 }
