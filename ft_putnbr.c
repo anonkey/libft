@@ -12,13 +12,16 @@
 
 #include "libft.h"
 
-void	ft_putnbr(int n)
+int	ft_putnbr(int n)
 {
 	char	*nbstr;
+	int	size;
 
 	nbstr = ft_itoa(n);
 	if (!nbstr)
-		return ;
+		return (0);
 	ft_putstr(nbstr);
+	size = ft_strlen(nbstr);
 	ft_strdel(&nbstr);
+	return (size);
 }

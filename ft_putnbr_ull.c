@@ -1,15 +1,22 @@
 #include "libft.h"
 #include <limits.h>
 
-int	ft_putnbr_ull(unsigned long long nbr)
+int		ft_putnbr_ull(unsigned long long nbr)
 {
-	char		digit;
 	unsigned long	size;
+	char		strout[MAX_ULLSIZE + 1];
+	char		*act;
 
 	size = 1;
-	digit = (char)(nbr % 10);
-	if (nbr >= 10)
-		size += ft_putnbr_ull(nbr / 10);
-	ft_putchar('0' + digit);
-	return (size);
+	act = strout + MAX_ULLSIZE;
+	*act-- = '\0';
+	while (nbr >= 10)
+	{
+		*act = '0' + (char)(nbr % 10);
+		--act;
+		++size;
+		nbr /= 10;
+	}
+	*act = '0' + nbr;
+	return (ft_putstr(act));
 }
