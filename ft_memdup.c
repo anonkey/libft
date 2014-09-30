@@ -1,36 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lsttotab.c                                      :+:      :+:    :+:   */
+/*   ft_memdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tseguier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/06/26 18:17:43 by tseguier          #+#    #+#             */
-/*   Updated: 2014/06/26 18:33:49 by tseguier         ###   ########.fr       */
+/*   Created: 2014/04/15 20:20:51 by tseguier          #+#    #+#             */
+/*   Updated: 2014/04/19 02:41:28 by tseguier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include <stdlib.h>
+#include "libft.h"
 
-char			**ft_lsttotab(t_ldcd l)
+void	*ft_memdup(void *mem, size_t len)
 {
-	char		**tab;
-	int			size;
-	t_ldcd_cell	iter;
+	void	*newmem;
+	size_t	i;
 
-	if (!l)
+	if (!mem)
 		return (NULL);
-	size = ft_ldcdsize(l);
-	tab = (char **)ft_memalloc(sizeof(char *) * (size + 1));
-	if (!tab)
+	i = 0;
+	newmem = malloc(len);
+	if (!newmem)
 		return (NULL);
-	tab[size] = NULL;
-	iter = l->tail;
-	while (iter)
+	while (i < len)
 	{
-		tab[--size] = iter->content;
-		iter = iter->prev;
+		*((char *)(newmem + i)) = *((char *)(mem + i));
+		++i;
 	}
-	return (tab);
+	return (newmem);
 }

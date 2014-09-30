@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-extern const char	*g_hexbase;
+static const char	*g_hexbase = "0123456789abcdef";
 
 static void	ft_fill(int count, int space)
 {
@@ -52,7 +52,7 @@ static void	ft_putnstr(char *str, unsigned int len, int hex, int space)
 
 static void	ft_putline(char *addr, unsigned int offset, unsigned int size)
 {
-	ft_putnbrhex(offset, 0);
+	ft_putnbrhex(offset, 8, 0);
 	ft_putchar(':');
 	ft_putchar('\t');
 	ft_putnstr(addr + offset, size, 1, 2);
@@ -66,7 +66,7 @@ void		*ft_print_memory(void *addr, unsigned int size)
 	unsigned int		count;
 
 	count = 0;
-	while (size - 16 > count)
+	while (size - 16 > count && size - 16 > 0)
 	{
 		ft_putline(addr, count, 16);
 		count += 16;

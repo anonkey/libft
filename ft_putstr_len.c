@@ -1,33 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ldcdpush_front.c                                :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tseguier <tseguier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2013/12/03 04:26:38 by tseguier          #+#    #+#             */
-/*   Updated: 2014/03/27 18:38:46 by jcoignet         ###   ########.fr       */
+/*   Created: 2013/11/25 16:50:31 by tseguier          #+#    #+#             */
+/*   Updated: 2014/07/06 14:18:33 by tseguier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_ldcd_cell.h"
+#include <unistd.h>
 #include "libft.h"
 
-int		ft_ldcdpush_front(t_ldcd ldcd, void *elem, size_t elem_size)
+int	ft_putstr_len(char const *s, unsigned long len)
 {
-	t_ldcd_cell		temp;
-
-	if (!ldcd)
-		return (-1);
-	temp = ft_ldcd_cellnew(elem, elem_size);
-	if (!temp)
-		return (-1);
-	temp->next = ldcd->head;
-	ldcd->head = temp;
-	if (!temp->next)
-		ldcd->tail = temp;
-	else
-		temp->next->prev = temp;
-	++(ldcd->size);
-	return (1);
+    unsigned long   size;
+	if (!s)
+		return (write(1, "(NULL)", 6 > len ? len : 6));
+	size = ft_strlen(s);
+	    return (write(1, s, size > len ? len : size));
 }

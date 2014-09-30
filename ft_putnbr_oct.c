@@ -1,36 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lsttotab.c                                      :+:      :+:    :+:   */
+/*   ft_putnbroct.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tseguier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/06/26 18:17:43 by tseguier          #+#    #+#             */
-/*   Updated: 2014/06/26 18:33:49 by tseguier         ###   ########.fr       */
+/*   Created: 2014/08/01 04:33:12 by tseguier          #+#    #+#             */
+/*   Updated: 2014/08/01 04:35:47 by tseguier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
-char			**ft_lsttotab(t_ldcd l)
+static const char	*g_octbase = "01234567";
+
+int		ft_putnbr_oct(unsigned long long nb, unsigned int len)
 {
-	char		**tab;
-	int			size;
-	t_ldcd_cell	iter;
+	char	nb_act;
+	int	size;
 
-	if (!l)
-		return (NULL);
-	size = ft_ldcdsize(l);
-	tab = (char **)ft_memalloc(sizeof(char *) * (size + 1));
-	if (!tab)
-		return (NULL);
-	tab[size] = NULL;
-	iter = l->tail;
-	while (iter)
+	size = 1;
+	nb_act = nb % 8;
+	if (nb >= 8)
+		size += ft_putnbr_oct(nb / 8, len > 0 ? len - 1 : 0);
+	else if (len > 0)
 	{
-		tab[--size] = iter->content;
-		iter = iter->prev;
+		size += len - 1;
+		while (--len > 0)
+		    ft_putchar('0');
 	}
-	return (tab);
+	ft_putchar(g_octbase[(int)nb_act]);
+	return (size);
 }

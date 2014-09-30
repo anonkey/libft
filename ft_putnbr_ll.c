@@ -1,36 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lsttotab.c                                      :+:      :+:    :+:   */
+/*   ft_putnbr_ll.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tseguier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/06/26 18:17:43 by tseguier          #+#    #+#             */
-/*   Updated: 2014/06/26 18:33:49 by tseguier         ###   ########.fr       */
+/*   Created: 2014/09/25 22:03:18 by tseguier          #+#    #+#             */
+/*   Updated: 2014/09/25 22:03:20 by tseguier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
+#include <limits.h>
 
-char			**ft_lsttotab(t_ldcd l)
+int	ft_putnbr_ll(long long nbr)
 {
-	char		**tab;
-	int			size;
-	t_ldcd_cell	iter;
+	char		digit;
+	unsigned long	size;
 
-	if (!l)
-		return (NULL);
-	size = ft_ldcdsize(l);
-	tab = (char **)ft_memalloc(sizeof(char *) * (size + 1));
-	if (!tab)
-		return (NULL);
-	tab[size] = NULL;
-	iter = l->tail;
-	while (iter)
+// long max
+	size = 1;
+	if (nbr < 0)
 	{
-		tab[--size] = iter->content;
-		iter = iter->prev;
+	    ++size;
+	    ft_putchar('-');
+	    nbr = 0 - nbr;
 	}
-	return (tab);
+	digit = (char)(nbr % 10);
+	if (nbr >= 10)
+		size += ft_putnbr_ll(nbr / 10);
+	ft_putchar('0' + digit);
+	return (size);
 }
